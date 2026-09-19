@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://requinteprodutosnaturais.com.br/sitemap.xml
