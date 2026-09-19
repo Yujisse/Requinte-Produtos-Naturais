@@ -49,6 +49,10 @@ export default {
           "70%": { transform: "scale(1.3)", opacity: "0" },
           "100%": { transform: "scale(1.3)", opacity: "0" },
         },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out forwards",

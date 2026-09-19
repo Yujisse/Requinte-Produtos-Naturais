@@ -5,7 +5,9 @@ import { whatsappUrl, directionsUrl } from "../utils/whatsapp";
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-cream">
-      <div className="container-narrow grid items-center gap-8 px-4 py-12 sm:px-6 md:py-20 lg:grid-cols-2 lg:gap-12 lg:px-8">
+      <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-forest-500/8 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl" aria-hidden="true" />
+      <div className="container-narrow relative grid items-center gap-8 px-4 py-12 sm:px-6 md:py-20 lg:grid-cols-2 lg:gap-12 lg:px-8">
         <div className="reveal order-2 lg:order-1">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.15em] text-gold-dark">
             {store.tagline}
@@ -49,7 +51,7 @@ export default function Hero() {
             <img
               src={store.images.heroProducts}
               alt="Variedade de chás, temperos e produtos naturais na Requinte"
-              className="aspect-[3/4] w-full rounded-card object-cover shadow-card"
+              className="hero-img-main aspect-[3/4] w-full rounded-card object-cover shadow-card"
               loading="eager"
               width={450}
               height={600}
@@ -58,7 +60,7 @@ export default function Hero() {
               <img
                 src={store.images.chasTemperos}
                 alt="Seleção de chás e temperos coloridos"
-                className="aspect-square w-full rounded-card object-cover shadow-soft"
+                className="hero-img-side aspect-square w-full rounded-card object-cover shadow-soft"
                 loading="eager"
                 width={300}
                 height={300}
@@ -66,7 +68,7 @@ export default function Hero() {
               <img
                 src={store.images.produtosGranel}
                 alt="Produtos a granel em dispensadores"
-                className="aspect-square w-full rounded-card object-cover shadow-soft"
+                className="hero-img-side aspect-square w-full rounded-card object-cover shadow-soft"
                 loading="eager"
                 width={300}
                 height={300}

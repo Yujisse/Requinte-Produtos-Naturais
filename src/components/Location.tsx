@@ -1,27 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { MapPin, Phone, Clock, MessageCircle, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle, Navigation, Compass } from "lucide-react";
 import { store } from "../data/store";
 import { whatsappUrl, directionsUrl, phoneLink } from "../utils/whatsapp";
 
 export default function Location() {
-  const [loadMap, setLoadMap] = useState(false);
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!mapRef.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setLoadMap(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px" }
-    );
-    observer.observe(mapRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="localizacao" className="section-padding bg-cream-light">
       <div className="container-narrow">
@@ -95,24 +76,33 @@ export default function Location() {
             </div>
           </div>
 
-          <div
-            ref={mapRef}
-            className="reveal overflow-hidden rounded-card shadow-soft"
-          >
-            {loadMap && (
-              <iframe
-                title="Mapa da Requinte Produtos Naturais no Uberaba, Curitiba"
-                src={store.mapsEmbed}
-                className="h-full min-h-[350px] w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            )}
-            {!loadMap && (
-              <div className="flex h-full min-h-[350px] items-center justify-center bg-forest-700/5">
-                <MapPin className="h-12 w-12 text-forest-700/30" aria-hidden="true" />
+          <div className="reveal relative min-h-[350px] overflow-hidden rounded-card bg-forest-900 shadow-soft">
+            <div className="absolute inset-0 map-grid opacity-30" aria-hidden="true" />
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border border-gold/20" aria-hidden="true" />
+            <div className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full border border-forest-500/40" aria-hidden="true" />
+            <div className="relative flex h-full min-h-[350px] flex-col items-center justify-center px-6 text-center">
+              <div className="map-pin-pulse mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gold text-forest-900 shadow-lift">
+                <MapPin className="h-9 w-9" aria-hidden="true" />
               </div>
-            )}
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-gold">
+                Unidade Uberaba
+              </p>
+              <p className="mt-2 max-w-sm font-serif text-2xl font-semibold text-cream">
+                Rua Eunice Bettini Bartoszeck, 1870
+              </p>
+              <p className="mt-2 text-sm text-cream/70">
+                Uberaba, Curitiba – PR
+              </p>
+              <a
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-6"
+              >
+                <Compass className="h-4 w-4" />
+                Abrir no Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>

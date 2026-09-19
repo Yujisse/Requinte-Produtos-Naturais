@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 hidden lg:flex"
+      className="group fixed bottom-6 right-6 z-40 hidden lg:flex"
       aria-label="Falar no WhatsApp"
       title="Falar no WhatsApp"
     >

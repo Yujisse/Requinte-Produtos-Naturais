@@ -10,6 +10,13 @@
   body {
     @apply bg-cream text-ink font-sans antialiased;
     line-height: 1.6;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5 22C7 12 13 6 23 5c-1 10-7 16-18 17Z' fill='%232F8F57' stroke='%23123D2A' stroke-width='1.5'/%3E%3Cpath d='M7 21 20 8' stroke='%23D5A62E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 4 4, auto;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5 22C7 12 13 6 23 5c-1 10-7 16-18 17Z' fill='%23D5A62E' stroke='%23123D2A' stroke-width='1.5'/%3E%3Cpath d='M7 21 20 8' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 4 4, pointer;
   }
 
   h1,
@@ -67,6 +74,67 @@
     transform: translateY(0);
   }
 
+  .reveal.visible:nth-child(2) {
+    transition-delay: 80ms;
+  }
+
+  .reveal.visible:nth-child(3) {
+    transition-delay: 160ms;
+  }
+
+  .reveal.visible:nth-child(4) {
+    transition-delay: 240ms;
+  }
+
+  .reveal.visible:nth-child(5) {
+    transition-delay: 320ms;
+  }
+
+  article,
+  figure {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  article:hover,
+  figure:hover {
+    transform: translateY(-4px);
+  }
+
+  .map-grid {
+    background-image: linear-gradient(rgba(248, 244, 232, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(248, 244, 232, 0.18) 1px, transparent 1px);
+    background-size: 42px 42px;
+    transform: rotate(-8deg) scale(1.25);
+  }
+
+  .map-pin-pulse {
+    position: relative;
+  }
+
+  .map-pin-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border: 1px solid rgba(213, 166, 46, 0.55);
+    border-radius: 9999px;
+    animation: pulse-ring 2.5s ease-out infinite;
+  }
+
+  .hero-img-main {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .hero-img-side {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .hero-img-side:nth-child(1) {
+    animation-delay: -2s;
+  }
+
+  .hero-img-side:nth-child(2) {
+    animation-delay: -4s;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -89,5 +157,22 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  article:hover,
+  figure:hover {
+    transform: none;
+  }
+
+  .hero-img-main,
+  .hero-img-side {
+    animation: none;
+  }
+
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: auto;
   }
 }
